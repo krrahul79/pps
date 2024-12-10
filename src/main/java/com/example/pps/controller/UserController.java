@@ -1,5 +1,6 @@
 package com.example.pps.controller;
 
+import com.example.pps.entity.Test;
 import com.example.pps.entity.User;
 import com.example.pps.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,12 @@ public class UserController {
     @PostMapping
     public User createUser(@RequestBody User user){
         return userService.saveUser(user);
+    }
+
+    @PostMapping("/test")
+    public String createUser(@RequestBody Test test){
+        System.out.println("Test"+test);
+        return "Value fetched";
     }
     @GetMapping
     public List<User> getAllUsers(){
